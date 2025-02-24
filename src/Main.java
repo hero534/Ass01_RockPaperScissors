@@ -38,6 +38,11 @@ public class Main {
                     else if (PlayerA.equals ("S") && PlayerB.equals ("P")) {
                         System.out.println("SCISSORS cuts PAPER, PlayerA wins!");
                     }
-        }
+                    else {
+                        System.out.println("You have entered a invalid option, please try again.");
+                    }
+                System.out.println("Do you want to keep playing? Choose either Y for Yes or N for No: ");
+                KeepPlaying = in.nextLine();
+            }while (KeepPlaying.equals ("Y"));
     }
 }
