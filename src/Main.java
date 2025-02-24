@@ -9,40 +9,42 @@ public class Main {
             do {
                 System.out.println("PlayerA, pick a move R, P or S: ");
                 PlayerA = in.nextLine();
+                    if (!PlayerA.equalsIgnoreCase("R") && !PlayerA.equalsIgnoreCase("P") && !PlayerA.equalsIgnoreCase("S")) {
+                        System.out.println("This input is invalid");
+                    }else {
                 System.out.println("PlayerB, pick a move R, P or S: ");
                 PlayerB = in.nextLine();
-                    if (PlayerA.equals ("R") && PlayerB.equals ("R")) {
-                        System.out.println("ROCK vs ROCK, it's a tie!");
+                    if (!PlayerB.equalsIgnoreCase("R") && !PlayerB.equalsIgnoreCase("P") && !PlayerB.equalsIgnoreCase("S")) {
+                        System.out.println("This input is invalid");
+                        }
                     }
-                    else if (PlayerA.equals ("R") && PlayerB.equals ("P")) {
-                        System.out.println("PAPER covers ROCK, PlayerB wins!");
+                    if (PlayerA.equalsIgnoreCase("R")) {
+                        if (PlayerB.equalsIgnoreCase("R")) {
+                            System.out.println("Rock vs Rock, it's a tie!");
+                        }else if (PlayerB.equalsIgnoreCase("P")) {
+                            System.out.println("Paper covers Rock, PlayerB wins!");
+                        }else if (PlayerB.equalsIgnoreCase("S")) {
+                            System.out.println("Rock breaks Scissors, PlayerA wins!");
+                        }
+                    }else if (PlayerA.equalsIgnoreCase("P")) {
+                        if (PlayerB.equalsIgnoreCase("P")) {
+                            System.out.println("Paper vs Paper, it's a tie!");
+                        } else if (PlayerB.equalsIgnoreCase("R")) {
+                            System.out.println("Paper covers Rock, PlayerA wins!");
+                        } else if (PlayerB.equalsIgnoreCase("S")) {
+                            System.out.println("Scissors cuts Paper, PlayerB wins!");
+                        }
+                    }else if (PlayerA.equalsIgnoreCase("S")) {
+                        if (PlayerB.equalsIgnoreCase("S")) {
+                            System.out.println("Scissors vs Scissors, it's a tie!");
+                        } else if (PlayerB.equalsIgnoreCase("R")) {
+                            System.out.println("Rock breaks Scissors, PlayerB wins!");
+                        } else if (PlayerB.equalsIgnoreCase("P")) {
+                            System.out.println("Scissors cuts Paper, PlayerA wins!");
+                        }
                     }
-                    else if (PlayerA.equals ("R") && PlayerB.equals ("S")) {
-                        System.out.println("ROCK crushes SCISSORS, PlayerA wins!");
-                    }
-                    else if (PlayerA.equals ("P") && PlayerB.equals ("P")) {
-                        System.out.println("PAPER vs PAPER, it's a tie!");
-                    }
-                    else if (PlayerA.equals ("P") && PlayerB.equals ("R")) {
-                        System.out.println("PAPER covers ROCK, PlayerA wins!");
-                    }
-                    else if (PlayerA.equals ("P") && PlayerB.equals ("S")) {
-                        System.out.println("SCISSORS cuts PAPER, PlayerB wins!");
-                    }
-                    else if (PlayerA.equals ("S") && PlayerB.equals ("S")) {
-                        System.out.println("SCISSORS vs SCISSORS, it's a tie!");
-                    }
-                    else if (PlayerA.equals ("S") && PlayerB.equals ("R")) {
-                        System.out.println("ROCK crushes SCISSORS, PlayerB wins!");
-                    }
-                    else if (PlayerA.equals ("S") && PlayerB.equals ("P")) {
-                        System.out.println("SCISSORS cuts PAPER, PlayerA wins!");
-                    }
-                    else {
-                        System.out.println("You have entered a invalid option, please try again.");
-                    }
-                System.out.println("Do you want to keep playing? Choose either Y for Yes or N for No: ");
+                System.out.println("Do you want to play again, type Y for Yes or N for No: ");
                 KeepPlaying = in.nextLine();
-            }while (KeepPlaying.equals ("Y"));
+            }while (KeepPlaying.equals("Y"));
     }
 }
